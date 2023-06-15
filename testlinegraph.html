@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HeartBeat Line Graph Temp</title>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+    </head>
+    <body>
+        <div id="container"></div>
+        <script>
+            function update() {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function(){
+                    if (this.readyState == 4 && this.status == 200) {
+                        var data = JSON.parse(this.responseText);
+                        Highcharts.chart('container', { // Use the correct container ID here
+                            chart: {
+                                type: 'line'
+                            },
+                            title: {
+                                text: 'HeartBeat Graph'
+                            },
+                            xAxis: {
+                                title: {
+                                    text: 'Time'
+                                }
+                            },
+                            yAxis: {
+                                title: {
+                                    text: 'HBR'
+                                }
+                            },
+                            series: [{
+                                    // name: 'My Data',
+                                data: data
+                            }]
+                        });
+                    }
+                };
+                var url = "readdata.php?nocache=" + Math.random();
+                xhr.open("GET", url, true);
+                xhr.send();
+            }
+            document.addEventListener('DOMContentLoaded', function() {
+                update();
+                setInterval(update, 1000);
+            });
+        </script>
+    </body>
+</html>

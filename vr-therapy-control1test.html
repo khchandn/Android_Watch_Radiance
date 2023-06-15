@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--<script src="/socket.io/socket.io.js"></script>-->
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+	<meta name="description" content=""/>
+	<meta name="author" content=""/>
+	<title>Radiance</title>
+	<!--favicon-->
+	<link rel="icon" href="./images/logo.png" type="image/x-icon">
+	<!-- simplebar CSS-->
+	<link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
+	<!-- Bootstrap core CSS-->
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="assets/plugins/bootstrap-switch/bootstrap-switch.min.css" rel="stylesheet"/>
+	<link href="assets/plugins/switchery/css/switchery.min.css" rel="stylesheet"/>
+
+	<!-- animate CSS-->
+	<link href="assets/css/animate.css" rel="stylesheet" type="text/css"/>
+	<!-- Icons CSS-->
+	<link href="assets/css/icons.css" rel="stylesheet" type="text/css"/>
+	<!-- Sidebar CSS-->
+	<link href="assets/css/sidebar-menu.css" rel="stylesheet"/>
+	<!-- Custom Style-->
+	<link href="assets/css/app-style.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="./css/video-js.min.css">
+	<link rel="stylesheet" href="./css/control.css">
+</head>
+
+<body onload="ConnectSocketIO()">
+
+<div id="wrapper">
+	<div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+		<div class="brand-logo">
+			<a href="index.html">
+				<img src="./images/logo.png" class="logo-icon" alt="logo icon">
+				<h5 class="logo-text">Radiance</h5>
+			</a>
+		</div>
+		<ul class="sidebar-menu do-nicescrol">
+			<li><a href="./VRdashboard.html" class="waves-effect"><img src="./images/dashboard.png" alt=""><span>Dashboard</span></a></li>
+			<li><a href="./vr-therapy-patient.html" class="waves-effect"><img src="./images/paint.png" alt=""><span>Patient Record</span></a></li>
+			<li><a href="./vr-therapy-scene.html" class="waves-effect"><img src="./images/sence.png" alt=""><span>VR Therapy Scene</span></a></li>
+			<li><a href="./vr-therapy-control1.html" class="waves-effect"><img src="./images/media.png" alt=""><span>VR Therapy Control</span></a></li>
+			<li><a href="./vr-therapy-questionnaires.html" class="waves-effect"><img src="./images/questionnaire.png" alt=""><span>Questionnaires</span></a></li>
+			<li><a href="./report.html" class="waves-effect"><img src="./images/report.png" alt=""><span>Report Review</span></a></li>
+			<li><a href="./setting.html" class="waves-effect"><img src="./images/setting.png" alt=""><span>Setting</span></a></li>
+		</ul>
+
+	</div>
+	<header class="topbar-nav">
+		<nav class="navbar navbar-expand fixed-top bg-white">
+			<ul class="navbar-nav mr-auto align-items-center">
+				<li class="nav-item">
+					<a class="nav-link toggle-menu" href="javascript:void();">
+						<img class="menu-icon" src="./images/expanded.png" alt="">
+					</a>
+				</li>
+				<li class="nav-item title">
+					VR Therapy Control
+				</li>
+			</ul>
+			<ul class="navbar-nav align-items-center right-nav-link">
+				<li class="nav-item">
+					<a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
+						<i class="fa fa-bell-o"></i><span class="badge badge-info badge-up">14</span></a>
+					<div class="dropdown-menu dropdown-menu-right">
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item d-flex justify-content-between align-items-center">
+								INFORMATION
+							</li>
+							<li class="notice list-group-item">
+								<a href="javaScript:void();">
+									<div class="media">
+										<img src="./images/bell.png" alt="">
+										<div class="media-body">
+											<h6 class="mt-0 msg-title">New Registered Users</h6>
+											<p class="msg-info"><img src="./images/clock.png" alt="">22 mins ago</p>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li class="notice list-group-item">
+								<a href="javaScript:void();">
+									<div class="media">
+										<img src="./images/bell.png" alt="">
+										<div class="media-body">
+											<h6 class="mt-0 msg-title">New Received Orders</h6>
+											<p class="msg-info"><img src="./images/clock.png" alt="">22 mins ago</p>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li class="notice list-group-item">
+								<a href="javaScript:void();">
+									<div class="media">
+										<img src="./images/bell.png" alt="">
+										<div class="media-body">
+											<h6 class="mt-0 msg-title">Title Title Title</h6>
+											<p class="msg-info"><img src="./images/clock.png" alt="">22 mins ago</p>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="dropdown" href="javascript:;">
+						<span class="user-profile"><img src="assets/images/avatars/avatar-13.png" class="img-circle" alt="user avatar"></span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
+						<span><img src="./images/nav.png" alt="dropdown"></span>
+					</a>
+					<ul class="user-dropdown dropdown-menu dropdown-menu-right">
+						<li class="user-info dropdown-item">
+							<img class="align-self-start mr-3" src="assets/images/avatars/avatar-13.png" alt="user avatar">
+							Macle li
+						</li>
+						<a href="./user-info.html"><li class="user-dropdown-item dropdown-item">
+							User Information
+							<img src="./images/right-icon.png" alt="">
+						</li></a>
+						<li class="user-dropdown-item dropdown-item">
+							Log Out
+							<img src="./images/right-icon.png" alt="">
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<!--End topbar header-->
+	<div class="clearfix"></div>
+	<div class="content-wrapper">
+		<div class="mt-2">
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="left-top-content">
+
+							<div class="card-header text-white">
+								<img src="./images/depression.png" alt="">
+								<div class="info">
+									<div class="title">Delusion Scane</div>
+									<div class="desc">Peter Chan</div>
+								</div>
+							</div>
+							<div class="video-wrapper" style="width: 100%; height: 200px">
+                <img  id="DisplayImg" src="./images/Classroom.png" style="width: 100%; "  />                                       
+							<!--	<video style="width: 100%; height: 100%;" id="my-video" class="video-js vjs-big-play-centered" controls preload="auto" data-setup="{}">
+									<source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+									<source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">
+									<source src="http://vjs.zencdn.net/v/oceans.ogv" type="video/ogg">
+								</video>
+							-->
+                          
+						</div>
+					</div>
+					<div class="left-bottom-content">
+						<div class="card" style="margin-bottom: 0;">
+							<div class="card-header hover toggle" >
+								<div class="left">
+                  <span class="fa fa-caret-up"></span>
+									<img src="./images/square.png" alt="">
+									Therapy Scene 
+								</div>
+								<div class="time">Duration:<span id="min">0</span>:<span id="sec">0</span></div>
+							</div>
+							<div class="card-body select-parent">
+								<select type="text" class="form-control" id="Scene" onchange="ChangeScene()">
+                  <option value="">Select Sence</option>
+										<option value="Room" >Room</option>
+										<option value="Train" >Train</option>
+										<option value="Classroom" selected>Classroom</option>
+								</select>
+							</div>
+							<div class="card-header text-white bg-header">
+								<div class="left-info">
+									<img src="./images/card-setting.png" alt="">
+									Therapy Control
+								</div>
+								<div class="info">
+									<img class="hover" src="./images/right-btn.png" alt="" id="start">
+									<img class="hover" src="./images/pause.png" alt="" id="end">
+									<img class="hover" src="./images/share-btn.png" alt="" id="restart">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="card-tab" style="padding-bottom: 10px">
+										<ul class="nav nav-pills nav-pills-info nav-justified" role="tablist">
+											<li class="nav-item">
+												<a class="nav-link active" data-toggle="pill" href="#changeEvent">Change Event</a>
+											</li>
+											<li class="nav-item" style="flex-basis: 50%">
+												<a class="nav-link" data-toggle="pill" href="#setting">Setting</a>
+											</li>
+										</ul>
+										<!-- Tab panes -->
+										<div class="tab-content">
+											<div id="changeEvent" class="container tab-pane active">
+												<input type="text" placeholder="Search" class="form-control form-control-rounded" id="SearchInput" onkeyup="SearchFunction()">
+                                                                                                                                                      
+												<div class="level-list row" style="max-height: 256px; overflow: auto; display:none"  id="Roomitem">
+													<div class="col-lg-6">
+														<div class="level-item" id="cry">Cry</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item" id="calm">Calm</div> 
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item" id="relax">Relax</div>
+													</div>
+											<!--		<div class="col-lg-6">
+														<div class="level-item" id="Replay">Replay</div>
+													</div> 
+                          -->
+													<div class="col-lg-6">
+														<div class="level-item">Evenet 1</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item">Evenet 2</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item">Evenet 3</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item">Evenet 4</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item">Evenet 5</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item">Evenet 6</div>
+													</div>
+                        </div>
+                        
+                        <div class="level-list row" style="max-height: 256px; overflow: auto; display:none"  id="Trainitem">
+													<!--<div class="col-lg-6">
+														<div class="level-item" id="MTRCome">MTRCome</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item" id="MTRLeave">MTRLeave</div>
+													</div>
+                          -->
+													<div class="col-lg-6">
+														<div class="level-item" id="Level_1">Level 1</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item" id="Level_2">Level 2</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item" id="Level_3">Level 3</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item" id="Level_4">Level 4</div>
+													</div>
+                          <div class="col-lg-6">
+														<div class="level-item" id="LookAtThePlayerTrain">LookAtThePlayer</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item" id="RetrunNormalPoseTrain" >RetrunNormalPose</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item">Evenet 3</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item">Evenet 4</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item">Evenet 5</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item">Evenet 6</div>
+													</div>
+                         </div>
+                         
+                         <div class="level-list row" style="max-height: 256px; overflow: auto; //display:none"  id="Classroomitem">
+													<div class="col-lg-6">
+														<div class="level-item" id="GoToClassroom">Go into Classroom</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item" id="LookAtThePlayerClassroom">LookAtThePlayer</div>
+													</div>
+                          
+													<div class="col-lg-6">
+														<div class="level-item" id="RetrunNormalPoseClassroom" >RetrunNormalPose</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item">Evenet 1</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item">Evenet 2</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item">Evenet 3</div>
+													</div>
+                          <!--
+													<div class="col-lg-6">
+														<div class="level-item" onclick="ConnectSocketIO()">LEVEL5</div>
+													</div>
+                          
+                          <div class="col-lg-6">
+														<div class="level-item" id="StartCapture">StartCapture</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item" id="StopCapture">StopCapture</div> 
+													</div>      
+                          <div class="col-lg-6">
+														<div class="level-item" id="PlayVideo">PlayVideo</div>
+													</div>                                                                                                 
+                          !-->                                                                                             
+                        </div>
+                       
+												
+											</div>
+											<div id="setting" class="container tab-pane fade">
+												<div class="setting" style="height: 294px;">
+													<div class="form-group row">
+														<label for="level" class="col-sm-3 col-form-label">Level:</label>
+														<div class="col-sm-9">
+															<select id="level" class="form-control">
+																<option value="level1">level1</option>
+																<option value="level1">level1</option>
+																<option value="level1">level1</option>
+																<option value="level1">level1</option>
+															</select>
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-sm-4 col-form-label" style="padding-right: 0;">Gender:</label>
+														<div class="col-sm-8" style="margin-left: -10px; text-align: left; padding: 0">
+															<div class="icheck-material-primary icheck-inline">
+																<input type="radio" id="leftMale" name="leftSex" checked/>
+																<label for="leftMale">male</label>
+															</div>
+															<div class="icheck-material-primary icheck-inline">
+																<input type="radio" id="leftFemale" name="leftSex"/>
+																<label for="leftFemale">female</label>
+															</div>
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label">Sound:</label>
+														<div class="col-sm-9" style="text-align: left">
+															<input type="checkbox" checked id="SoundCheckBox" class="js-switch" data-color="#008cff" data-size="small" onchange="SoundOpen()"/>
+														</div>
+													</div>
+													<div class="form-group row">
+														<label class="col-sm-3 col-form-label">xxx:</label>
+														<div class="col-sm-9" style="text-align: left">
+															<input type="checkbox" class="js-switch" data-color="#008cff" data-size="small"/>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-8">
+					<div class="right-top-content">
+						<div class="card">
+							<div class="card-header text-white">
+								<div class="left">
+									<img src="./images/heart.png" alt="">
+									Health Status
+								</div>
+								<div class="info">
+									Peter Chan
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3" style="padding-left: 2px; padding-right: 2px">
+									<canvas id="topPressure" height="160"></canvas>
+									<canvas id="topPressure2" height="160"></canvas>
+                  <canvas id="topRate" height="160"></canvas>
+								</div>
+								<div class="col-lg-9" style="padding-left: 0; padding-right: 0; margin-left: -30px">
+									<div class="chart-title">
+										Heart Rate Display
+										<div class="right">
+											<button id="history-btn">History</button>
+											<button id="temp-btn">Back to Update</button>
+											<button id="clear-btn">Clear</button>
+											<img class="left-top-btn" src="./images/left-btn.png" alt="">
+											<img class="right-top-btn" src="./images/right-btn.png" alt="">
+										</div>
+									</div>
+									<div class="radio-group mt-1 mb-1">
+										<div class="icheck-material-primary icheck-inline">
+											<input type="radio" id="heart" value="2019" name="rate"/>
+											<label for="heart">Breathing Rate</label>
+										</div>
+										<div class="icheck-material-primary icheck-inline">
+											<input type="radio" id="breath" value="2018" name="rate"/>
+											<label for="breath">Heart Beat Rate</label>
+										</div>
+									</div>
+									<canvas id="heartRate" height="80"></canvas>
+									<div class="chart-title">
+										Heart Rate Variability
+										<div class="right">
+											<!-- <button id="btn">Toggle Graph</button> -->
+											<img class="left-bottom-btn" src="./images/left-btn.png" alt="">
+											<img class="right-bottom-btn" src="./images/right-btn.png" alt="">
+										</div>
+									</div>
+									<canvas id="bloodPressure" height="60"></canvas>
+								</div>
+							</div>
+						</div>
+						<div class="card event-card">
+							<div class="card-header text-white" style="background-image: linear-gradient(-90deg,#10c3e9 0%,#108ee9 100%),linear-gradient(#8190ff,#8190ff);">
+								<div class="left">
+									<img src="./images/event.png" alt="">
+									Event
+								</div>
+								<div class="info flex">
+									<input id="log-input" type="text" class="form-control" placeholder="Add">
+									<div class="input-group-append">
+										<button class="btn btn-danger" type="button">Add</button>
+									</div>
+								</div>
+							</div>
+							<div class="table-responsive" style="margin-top: 8px; height: 278px;">
+								<table class="table table-striped table-flush">
+									<thead>
+									<tr>
+										<th scope="col">Time</th>
+										<th scope="col">Event</th>
+									</tr>
+									</thead>
+									<tbody  id="table-log">
+                    <tr>
+                        <td>00:00</td>
+                        <td>The therapy started at <span id='Tyr'></span>/<span id='Tmo'></span>/<span id='Tdt'></span> <span id='Thr'></span>:<span id='Tmi'></span>:<span id='Tsc'></span> </td>
+                    </tr>
+									</tbody>
+								</table>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!--End content-wrapper-->
+</div><!--End wrapper-->
+
+<!-- Bootstrap core JavaScript-->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+
+<!-- simplebar js -->
+<!--<script src="assets/plugins/simplebar/js/simplebar.js"></script>-->
+<!-- waves effect js -->
+<script src="assets/js/waves.js"></script>
+<!-- sidebar-menu js -->
+<script src="assets/js/sidebar-menu.js"></script>
+<!-- Custom scripts -->
+<script src="assets/js/app-script.js"></script>
+<!-- Chart js -->
+<script src="assets/plugins/Chart.js/Chart.min.js"></script>
+<!--Peity Chart -->
+<script src="assets/plugins/peity/jquery.peity.min.js"></script>
+<script src="assets/plugins/switchery/js/switchery.min.js"></script>
+
+<script src="./js/control2temp.js"></script>
+<script src="./js/video.min.js"></script>
+<script>
+
+	var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'))
+	$('.js-switch').each(function () {
+		new Switchery($(this)[0], $(this).data())
+	})
+ /*
+	videojs.addLanguage('zh-CN', {
+		'Play': '����',
+		'Pause': '?��',
+		'Current Time': '?�e??',
+		'Duration': '??',
+		'Remaining Time': '�ѧE??',
+		'Stream Type': '�C�^�y?��',
+		'LIVE': '����',
+		'Loaded': '�[?��?',
+		'Progress': '?��',
+		'Fullscreen': '����',
+		'Non-Fullscreen': '�h�X����',
+		'Mute': '?��',
+		'Unmute': '����?��',
+		'Playback Rate': '����t��',
+		'Subtitles': '�r��',
+		'subtitles off': '??�r��',
+		'Captions': '?�O�r��',
+		'captions off': '???�O�r��',
+		'Chapters': '?�جq��',
+		'Close Modal Dialog': '???��',
+		'Descriptions': '�y�z',
+		'descriptions off': '??�y�z',
+		'Audio Track': '��?',
+		'You aborted the media playback': '??����Q?��',
+		'A network error caused the media download to fail part-way.': '�I????�P??�U?���~��?�C',
+		'The media could not be loaded, either because the server or network failed or because the format is not supported.': '??�]�榡������Ϊ̪A?�����I?��???�k�[?�C',
+		'The media playback was aborted due to a corruption problem or because the media used features your browser did not support.': '�Ѥ_??���?���άO???�ϥΤF�A��??����������\��A����?��C',
+		'No compatible source was found for this media.': '?�k��즹??�ݮe�����C',
+		'The media is encrypted and we do not have the keys to decrypt it.': '??�w�[�K�A?�k�ѱK�C',
+		'Play Video': '����??',
+		'Close': '??',
+		'Modal Window': '?��',
+		'This is a modal window': '?�O�@??��',
+		'This modal can be closed by pressing the Escape key or activating the close button.': '�i�H��ESC��?��?��??��????��?���C',
+		', opens captions settings dialog': ', ?????�m?��',
+		', opens subtitles settings dialog': ', ??�r��?�m?��',
+		', opens descriptions settings dialog': ', ??�y�z?�m?��',
+		', selected': ', ??',
+		'captions settings': '�r��?�w',
+		'Audio Player': '��?����',
+		'Video Player': '??����',
+		'Replay': '����',
+		'Progress Bar': '?�פp?',
+		'Volume Level': '���q',
+		'subtitles settings': '�r��?�w',
+		'descriptions settings': '�y�z?�w',
+		'Text': '��r',
+		'White': '��',
+		'Black': '��',
+		'Red': '?',
+		'Green': '?',
+		'Blue': '?',
+		'Yellow': '?',
+		'Magenta': '��?',
+		'Cyan': '�C',
+		'Background': '�I��',
+		'Window': '?��',
+		'Transparent': '�z��',
+		'Semi-Transparent': '�b�z��',
+		'Opaque': '���z��',
+		'Font Size': '�r�^�ؤo',
+		'Text Edge Style': '�r�^???��',
+		'None': '?',
+		'Raised': '�B�J',
+		'Depressed': '?�C',
+		'Uniform': '��?',
+		'Dropshadow': '�U?�v',
+		'Font Family': '�r�^?',
+		'Proportional Sans-Serif': '���??�^',
+		'Monospace Sans-Serif': '??�j??�^',
+		'Proportional Serif': '���?�^',
+		'Monospace Serif': '??�j?�^',
+		'Casual': '����',
+		'Script': '��?�^',
+		'Small Caps': '�p���j?�r�^',
+		'Reset': '��?',
+		'restore all settings to the default values': '���`����?�w��??��',
+		'Done': '����',
+		'Caption Settings Dialog': '�r��?�w?��',
+		'Beginning of dialog window. Escape will cancel and close the window.': '?�l???���C��??������???��',
+		'End of dialog window.': '?��???��'
+	})
+	var myPlayer = videojs('my-video')
+	videojs('my-video').ready(function () {
+		var myPlayer = this
+		myPlayer.play()
+	})
+ 
+ */
+	$('.input-group button').on('click', function () {
+		var $parent = $(this).parents('.input-group')
+		var val = $parent.find('input').val()
+		if (val && val.trim()) {
+			$parent.siblings('.table-responsive').find('tbody').append('<tr>\n' +
+				'\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td>18:00:00</td>\n' +
+				'\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td>'+ val +'</td>\n' +
+				'\t\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>')
+			$parent.find('input').val('')
+		}
+	})
+
+</script>
+<!-- Index js -->
+
+
+                    <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
+                    <script type="text/javascript">
+
+                       
+                   //     var socket = io.connect('');
+                   //     
+                   //     socket.on('chat', function (msg) {
+                    //        alert();
+                   //     });
+
+                        //var socket = io.connect('http://18.191.123.63:3000');
+                        //socket.on('signal', function (msg) {
+                         //  alert();
+                       //});
+
+                        $("[rel=tooltip]").tooltip();
+                        $(function () {
+                            $('.demo-cancel-click').click(function () { return false; });
+                        });
+
+                        $('#cry').on('click', function () {
+                            $.post('/cry');
+
+                            var tmin = Math.floor(sec / 60);
+                            var tsec = sec % 60;
+                            if (tmin < 10) { tmin = "0" + tmin };
+                            if (tsec < 10) { tsec = "0" + tsec };
+                            var temp = "<tr><td>" + tmin + ":" + tsec + "</td><td>" + "[Scene] Girl's Emotion changed to 'Cry'." + "</td></tr>";
+                            document.getElementById("table-log").innerHTML = temp + document.getElementById("table-log").innerHTML;
+
+                        });
+                        $('#calm').on('click', function () {
+                            $.post('/relax');
+                            var tmin = Math.floor(sec / 60);
+                            var tsec = sec % 60;
+                            if (tmin < 10) { tmin = "0" + tmin };
+                            if (tsec < 10) { tsec = "0" + tsec };
+                            var temp = "<tr><td>" + tmin + ":" + tsec + "</td><td>" + "[Scene] Girl's Emotion changed to 'Calm'." + "</td></tr>";
+                            document.getElementById("table-log").innerHTML = temp + document.getElementById("table-log").innerHTML;
+                        });
+                        $('#relax').on('click', function () {
+                            $.post('/happy');
+                            var tmin = Math.floor(sec / 60);
+                            var tsec = sec % 60;
+                            if (tmin < 10) { tmin = "0" + tmin };
+                            if (tsec < 10) { tsec = "0" + tsec };
+                            var temp = "<tr><td>" + tmin + ":" + tsec + "</td><td>" + "[Scene] Girl's Emotion changed to 'Relax'." + "</td></tr>";
+                            document.getElementById("table-log").innerHTML = temp + document.getElementById("table-log").innerHTML;
+                        });
+                        $('#Event1').on('click', function () {
+                            $.post('/event1');
+                            var tmin = Math.floor(sec / 60);
+                            var tsec = sec % 60;
+                            if (tmin < 10) { tmin = "0" + tmin };
+                            if (tsec < 10) { tsec = "0" + tsec };
+                            var temp = "<tr><td>" + tmin + ":" + tsec + "</td><td>" + "[Scene] Event1." + "</td></tr>";
+                            document.getElementById("table-log").innerHTML = temp + document.getElementById("table-log").innerHTML;
+                        });
+                        
+                        $('#MTRCome').on('click', function () {
+                            $.post('/MTRCome');
+                            var tmin = Math.floor(sec / 60);
+                            var tsec = sec % 60;
+                            if (tmin < 10) { tmin = "0" + tmin };
+                            if (tsec < 10) { tsec = "0" + tsec };
+                            var temp = "<tr><td>" + tmin + ":" + tsec + "</td><td>" + "[Scene] The MTR is coming." + "</td></tr>";
+                            document.getElementById("table-log").innerHTML = temp + document.getElementById("table-log").innerHTML;
+                        });          
+                                     
+                        $('#MTRLeave').on('click', function () {
+                            $.post('/MTRLeave');
+                            var tmin = Math.floor(sec / 60);
+                            var tsec = sec % 60;
+                            if (tmin < 10) { tmin = "0" + tmin };
+                            if (tsec < 10) { tsec = "0" + tsec };
+                            var temp = "<tr><td>" + tmin + ":" + tsec + "</td><td>" + "[Scene] The MTR will leave soon." + "</td></tr>";
+                            document.getElementById("table-log").innerHTML = temp + document.getElementById("table-log").innerHTML;
+                        }); 
+                        
+                        $('#Level_1').on('click', function () {
+                            $.post('/Level_1');
+                            var tmin = Math.floor(sec / 60);
+                            var tsec = sec % 60;
+                            if (tmin < 10) { tmin = "0" + tmin };
+                            if (tsec < 10) { tsec = "0" + tsec };
+                            var temp = "<tr><td>" + tmin + ":" + tsec + "</td><td>" + "[Scene] The scene level change to level 1." + "</td></tr>";
+                            document.getElementById("table-log").innerHTML = temp + document.getElementById("table-log").innerHTML;
+                        }); 
+                        
+                        $('#Level_2').on('click', function () {
+                            $.post('/Level_2');
+                            var tmin = Math.floor(sec / 60);
+                            var tsec = sec % 60;
+                            if (tmin < 10) { tmin = "0" + tmin };
+                            if (tsec < 10) { tsec = "0" + tsec };
+                            var temp = "<tr><td>" + tmin + ":" + tsec + "</td><td>" + "[Scene] The scene level change to level 2." + "</td></tr>";
+                            document.getElementById("table-log").innerHTML = temp + document.getElementById("table-log").innerHTML;
+                        }); 
+                        
+                        $('#Level_3').on('click', function () {
+                            $.post('/Level_3');
+                            var tmin = Math.floor(sec / 60);
+                            var tsec = sec % 60;
+                            if (tmin < 10) { tmin = "0" + tmin };
+                            if (tsec < 10) { tsec = "0" + tsec };
+                            var temp = "<tr><td>" + tmin + ":" + tsec + "</td><td>" + "[Scene] The scene level change to level 3." + "</td></tr>";
+                            document.getElementById("table-log").innerHTML = temp + document.getElementById("table-log").innerHTML;
+                        }); 
+                        
+                        $('#Level_4').on('click', function () {
+                            $.post('/Level_4');
+                            var tmin = Math.floor(sec / 60);
+                            var tsec = sec % 60;
+                            if (tmin < 10) { tmin = "0" + tmin };
+                            if (tsec < 10) { tsec = "0" + tsec };
+                            var temp = "<tr><td>" + tmin + ":" + tsec + "</td><td>" + "[Scene] The scene level change to level 4." + "</td></tr>";
+                            document.getElementById("table-log").innerHTML = temp + document.getElementById("table-log").innerHTML;
+                        }); 
+                        
+                        $('#GoToClassroom').on('click', function () {
+                            $.post('/GoTOClassroom');
+                            var tmin = Math.floor(sec / 60);
+                            var tsec = sec % 60;
+                            if (tmin < 10) { tmin = "0" + tmin };
+                            if (tsec < 10) { tsec = "0" + tsec };
+                            var temp = "<tr><td>" + tmin + ":" + tsec + "</td><td>" + "[Scene] Go to Classroom." + "</td></tr>";
+                            document.getElementById("table-log").innerHTML = temp + document.getElementById("table-log").innerHTML;
+                        }); 
+                        
+                        $('#LookAtThePlayerClassroom, #LookAtThePlayerTrain').on('click', function () {
+                            $.post('/LookAtThePlayer');
+                            var tmin = Math.floor(sec / 60);
+                            var tsec = sec % 60;
+                            if (tmin < 10) { tmin = "0" + tmin };
+                            if (tsec < 10) { tsec = "0" + tsec };
+                            var temp = "<tr><td>" + tmin + ":" + tsec + "</td><td>" + "[Scene] Character look at the player." + "</td></tr>";
+                            document.getElementById("table-log").innerHTML = temp + document.getElementById("table-log").innerHTML;
+                        }); 
+                        
+                        $('#RetrunNormalPoseClassroom,#RetrunNormalPoseTrain').on('click', function () {
+                            $.post('/RetrunNormalPoseClassroom');
+                            var tmin = Math.floor(sec / 60);
+                            var tsec = sec % 60;
+                            if (tmin < 10) { tmin = "0" + tmin };
+                            if (tsec < 10) { tsec = "0" + tsec };
+                            var temp = "<tr><td>" + tmin + ":" + tsec + "</td><td>" + "[Scene] Character retrun to normal pose" + "</td></tr>";
+                            document.getElementById("table-log").innerHTML = temp + document.getElementById("table-log").innerHTML;
+                        }); 
+                        
+                        
+                        $('#StartCapture').on('click', function () {
+                            $.post('/StartCapture');
+                            var tmin = Math.floor(sec / 60);
+                            var tsec = sec % 60;
+                            if (tmin < 10) { tmin = "0" + tmin };
+                            if (tsec < 10) { tsec = "0" + tsec };
+                            var temp = "<tr><td>" + tmin + ":" + tsec + "</td><td>" + "[Video] Start Capture." + "</td></tr>";
+                            document.getElementById("table-log").innerHTML = temp + document.getElementById("table-log").innerHTML;
+                        }); 
+                        
+                        $('#StopCapture').on('click', function () {
+                            $.post('/StopCapture');
+                            var tmin = Math.floor(sec / 60);
+                            var tsec = sec % 60;
+                            if (tmin < 10) { tmin = "0" + tmin };
+                            if (tsec < 10) { tsec = "0" + tsec };
+                            var temp = "<tr><td>" + tmin + ":" + tsec + "</td><td>" + "[Video] Stop Capture." + "</td></tr>";
+                            document.getElementById("table-log").innerHTML = temp + document.getElementById("table-log").innerHTML;
+                        }); 
+                        
+                        $('#PlayVideo').on('click', function () {
+                            $.post('/PlayVideo');
+                            var tmin = Math.floor(sec / 60);
+                            var tsec = sec % 60;
+                            if (tmin < 10) { tmin = "0" + tmin };
+                            if (tsec < 10) { tsec = "0" + tsec };
+                            var temp = "<tr><td>" + tmin + ":" + tsec + "</td><td>" + "[Video] Play Video." + "</td></tr>";
+                            document.getElementById("table-log").innerHTML = temp + document.getElementById("table-log").innerHTML;
+                        }); 
+                        
+                        $('#Replay').on('click', function () {
+                            $.post('/replay');
+                            var tmin = Math.floor(sec / 60);
+                            var tsec = sec % 60;
+                            if (tmin < 10) { tmin = "0" + tmin };
+                            if (tsec < 10) { tsec = "0" + tsec };
+                            var temp = "<tr><td>" + tmin + ":" + tsec + "</td><td>" + "[Scene] Replay." + "</td></tr>";
+                            document.getElementById("table-log").innerHTML = temp + document.getElementById("table-log").innerHTML;
+                        });
+                        $('#pause').on('click', function () {
+                            $.post('/pause');
+                            var tmin = Math.floor(sec / 60);
+                            var tsec = sec % 60;
+                            if (tmin < 10) { tmin = "0" + tmin };
+                            if (tsec < 10) { tsec = "0" + tsec };
+                            if (isPause == 0) {
+                                var temp = "<tr><td>" + tmin + ":" + tsec + "</td><td>" + "[Scene] Pasued." + "</td></tr>"
+                                document.getElementById("pauseText").innerHTML = "Resume";
+                                ;
+                            } else {
+                                var temp = "<tr><td>" + tmin + ":" + tsec + "</td><td>" + "[Scene] Resumed." + "</td></tr>"
+                                document.getElementById("pauseText").innerHTML = "Pause";
+                                ;
+                            };
+                            document.getElementById("table-log").innerHTML = temp + document.getElementById("table-log").innerHTML;
+                            if (isPause == 0) { isPause = 1; } else { isPause = 0 };
+                        });
+                        $('#restart').on('click', function () {
+                            $.post('/restart');
+                            var tmin = Math.floor(sec / 60);
+                            var tsec = sec % 60;
+                            if (tmin < 10) { tmin = "0" + tmin };
+                            if (tsec < 10) { tsec = "0" + tsec };
+                            var temp = "<tr><td>" + tmin + ":" + tsec + "</td><td>" + "[Scene] Restarted." + "</td></tr>";
+                            document.getElementById("table-log").innerHTML = temp + document.getElementById("table-log").innerHTML;
+                        });
+
+                        $('#end').on('click', function () {
+                            $.post('/end');
+                            var tmin = Math.floor(sec / 60);
+                            var tsec = sec % 60;
+                            if (tmin < 10) { tmin = "0" + tmin };
+                            if (tsec < 10) { tsec = "0" + tsec };
+                            var temp = "<tr><td>" + tmin + ":" + tsec + "</td><td>" + "Therapy ended. Duration: " + tmin + " : " + tsec + "</td></tr>";
+                            document.getElementById("table-log").innerHTML = temp + document.getElementById("table-log").innerHTML;
+                            document.getElementById("row2").style.visibility = "hidden";
+                            document.getElementById("cry").style.visibility = "hidden";
+                            document.getElementById("calm").style.visibility = "hidden";
+                            document.getElementById("relax").style.visibility = "hidden";
+                            document.getElementById("end").style.visibility = "hidden";
+                            document.getElementById("bt-add").style.visibility = "hidden";
+                            document.getElementById("pause").style.visibility = "hidden";
+                            myStopFunction();
+                        });
+
+                        $('#start').on('click', function () {
+                            $.post('/start');
+                            location.reload();
+                        });
+
+
+                        var sec = 0;
+                        var myVar = setInterval(TickSec, 1000);
+                        function TickSec() {
+                            sec = sec + 1;
+                            document.getElementById("sec").innerHTML = sec % 60;
+                            document.getElementById("min").innerHTML = Math.floor(sec / 60);
+                        }
+
+
+                        function myStopFunction() {
+                            clearInterval(myVar);
+                        }
+
+                        isPause = 0;
+
+
+                        var d = new Date();
+                        document.getElementById('Tmo').innerHTML = d.getMonth() + 1;
+                        document.getElementById("Tyr").innerHTML = d.getFullYear();
+                        document.getElementById("Tdt").innerHTML = d.getDate();
+                        document.getElementById("Thr").innerHTML = d.getHours();
+                        document.getElementById("Tmi").innerHTML = d.getMinutes();
+                        document.getElementById("Tsc").innerHTML = d.getSeconds();
+
+
+                        $("#bt-add").click(function () {
+                            var tmin = Math.floor(sec / 60);
+                            var tsec = sec % 60;
+
+                            if (tmin < 10) { tmin = "0" + tmin };
+                            if (tsec < 10) { tsec = "0" + tsec };
+
+                            var temp = "<tr><td>" + tmin + ":" + tsec + "</td><td>" + document.getElementById('appendedInputButton').value + "</td></tr>";
+                            document.getElementById("table-log").innerHTML = temp + document.getElementById("table-log").innerHTML;
+
+                        });
+
+
+                    </script>
+                    
+                    <script>
+                        var SceneBox;
+                          function SearchFunction() {
+                              var SearchInput, filter, itemBox, items, a, i, txtValue;
+                              SearchInput = document.getElementById("SearchInput");
+                              filter = SearchInput.value.toUpperCase();
+                              itemBox = document.getElementById(SceneBox);
+                              items = itemBox.getElementsByTagName("div");
+                              for (i = 0; i < items.length/2; i++) {
+                                  a = items[i*2].getElementsByTagName("div")[0];
+                                  txtValue = a.textContent || a.innerText;
+                                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                      items[i*2].style.display = "";
+                                  } else {
+                                      items[i*2].style.display = "none";
+                                  }
+                              }
+                          } 
+                          
+                          function ChangeScene(){
+                              var itemBox, sceneitem, Scene;
+                              itemBox = document.getElementById("itemBox");
+                              Scene =  document.getElementById("Scene").value;
+                             if(Scene == "Room"){
+                               $.post('/Room');
+                               SceneBox="Roomitem";
+                               document.getElementById("Roomitem").style.display = "";
+                               document.getElementById("Trainitem").style.display = "none";
+                               document.getElementById("Classroomitem").style.display = "none";
+                             }else
+                             if(Scene =="Train"){
+                               $.post('/Train');
+                               SceneBox="Trainitem";
+                               document.getElementById("Roomitem").style.display = "none";
+                               document.getElementById("Trainitem").style.display = "";
+                               document.getElementById("Classroomitem").style.display = "none";
+                             }else
+                             if(Scene =="Classroom"){
+                               $.post('/Classroom');
+                               SceneBox="Classroomitem";
+                               document.getElementById("Roomitem").style.display = "none";
+                               document.getElementById("Trainitem").style.display = "none";
+                               document.getElementById("Classroomitem").style.display = "";
+                             }else{
+                               SceneBox="none";
+                               document.getElementById("Roomitem").style.display = "none";
+                               document.getElementById("Trainitem").style.display = "none";
+                               document.getElementById("Classroomitem").style.display = "none";
+                             }
+                          }
+                          
+                          function SoundOpen(){
+                              if(document.getElementById("SoundCheckBox").checked){
+                                    Sound =true;
+                              }else{
+                                    Sound =false;
+                              }
+                          }                   
+                    </script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+
+                    <script src="./js/Streaming.js"></script>
+                    <script type="text/javascript">function ConnectSocketIO() {
+
+            var socket = io.connect('43.252.167.19:3003');
+
+            var label_img = 1001;
+            var dataID = 0;
+            var dataLength = 0;
+            var receivedLength = 0;
+            var dataByte = new Uint8Array(0);
+
+            var ReadyToGetFrame = true;
+
+            socket.on('OnReceiveData', function (data) {
+
+                var _byteData = new Uint8Array(data.DataByte);
+                var _label = ByteToInt32(_byteData, 0);
+                
+                    var _dataID = ByteToInt32(_byteData, 4);
+
+                    if (_dataID != dataID) {
+                        //console.log("new ID");
+                        receivedLength = 0;
+                        dataID = _dataID;
+
+                        dataLength = ByteToInt32(_byteData, 8);
+                        //var _offset = ByteToInt32(_byteData, 12);
+
+                        if (receivedLength == 0) dataByte = new Uint8Array(0);
+                        receivedLength += _byteData.length - 16;
+
+                        //----------------add byte----------------
+                        dataByte = CombineArray(dataByte, _byteData.slice(16, _byteData.length));
+                        //-
+
+                        //console.log(dataLength + ' : ' + a.length + ' / ' + c.length);
+
+                        if (ReadyToGetFrame) {
+                            if (receivedLength == dataLength) ProcessImageData(dataByte);
+                        }
+                    }
+                    else if (_dataID == dataID) {
+
+                        //console.log("adding data");
+                        dataID = _dataID;
+                        dataLength = ByteToInt32(_byteData, 8);
+                        //var _offset = ByteToInt32(_byteData, 12);
+
+                        if (receivedLength == 0) dataByte = new Uint8Array(0);
+                        receivedLength += _byteData.length - 16;
+
+                        //----------------add byte----------------
+                        dataByte = CombineArray(dataByte, _byteData.slice(16, _byteData.length));
+                        //----------------add byte----------------
+
+                        if (ReadyToGetFrame) {
+                            if (receivedLength == dataLength) ProcessImageData(dataByte);
+                        }
+                    }
+
+                function ProcessImageData(_byte) {
+                    ReadyToGetFrame = false;
+                    //----conver byte[] to Base64 string----
+                    var binary = '';
+                    var bytes = new Uint8Array(_byte);
+                    var len = dataByte.byteLength;
+                    for (var i = 0; i < len; i++) {
+                        binary += String.fromCharCode(bytes[i]);
+                    }
+                    //----conver byte[] to Base64 string----
+
+                    //----display image----
+                    var img = document.getElementById('DisplayImg');
+                    img.src = 'data:image/jpeg;base64,' + btoa(binary);
+                    //img.width = data.Width;
+                    //img.height = data.Height;
+                    //----display image----
+
+                    ReadyToGetFrame = true;
+                }
+
+                function CombineArray(a, b) {
+                    var c = new Int8Array(a.length + b.length);
+                    c.set(a);
+                    c.set(b, a.length);
+                    //----------------add byte----------------
+
+                    if (ReadyToGetFrame) {
+                        if (receivedLength == dataLength) {
+                            ProcessImageData(dataByte);
+                        }
+                    }
+                    return c;
+                }
+
+                function ByteToInt32(_byte, _offset) {
+                    return _byte[_offset] + _byte[_offset + 1] * 256 + _byte[_offset + 2] * 256 * 256 + _byte[_offset + 3] * 256 * 256 * 256;
+                }
+            });
+
+
+        }
+		// document.addEventListener('DOMContentLoaded', function() {
+		// 	update();
+		// 	setInterval(update, 1000);
+		// });
+		</script>
+
+                  
+</body>
+</html>
