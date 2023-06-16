@@ -357,3 +357,53 @@ function togglegraph(options){
     }
   });
 }
+
+
+
+
+
+
+
+
+
+
+
+// function extractData(orgdata) {
+//     // extract data from database
+//     if (orgdata) {
+//       if (!time1 && !extractedheartdata1) {
+//         console.log('empty');
+//         firstUserID = orgdata[0].userID;
+//         // extract data for User A
+//         display_time1 = orgdata.slice(orgdata.length < 30 ? -orgdata.length : -30)
+//           .filter(function(item) {return item.userID == firstUserID})
+//           .map(function(item) {return new Date(item.x).toLocaleTimeString();});
+//         time1 = orgdata.filter(function(item) {return item.userID == firstUserID})
+//           .map(function(item) {return new Date(item.x).toLocaleTimeString();});
+//         display_extractedheartdata1 = orgdata.slice(orgdata.length < 30 ? -orgdata.length : -30)
+//           .filter(function(item) {return item.userID == firstUserID})
+//           .map(function(item) {return item.y});
+//         extractedheartdata1 = orgdata
+//           .filter(function(item) {return item.userID == firstUserID})
+//           .map(function(item) {return item.y});
+//         // extract data for User B
+//         var userIDSet = new Set();
+//         // for (var i = 0; i < orgdata.length; i++) {
+//         //   userIDSet.add(orgdata[i].userID);
+//         // }
+//         // var userIDCount = userIDSet.size;
+//         display_time2 = sqlheartdata.slice(sqlheartdata.length<30?-sqlheartdata.length:-30)
+//             .filter(function(item) {return item.userID != firstUserID})
+//             .map(function(item) {return new Date(item.x).toLocaleTimeString();});
+//         time2 = sqlheartdata.filter(function(item) {return item.userID != firstUserID})
+//             .map(function(item) {return new Date(item.x).toLocaleTimeString();});
+//         display_extractedheartdata2 = sqlheartdata.slice(sqlheartdata.length<30?-sqlheartdata.length:-30)
+//             .filter(function(item) {return item.userID != firstUserID})
+//             .map(function(item) {return item.y});
+//         extractedheartdata2 = sqlheartdata
+//             .filter(function(item) {return item.userID != firstUserID})
+//             .map(function(item) {return item.y});
+//           // upGraph();
+//       }
+//     }
+// }
