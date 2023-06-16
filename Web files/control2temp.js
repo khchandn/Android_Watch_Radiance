@@ -100,6 +100,9 @@ new Chart($('#topRate').get(0).getContext('2d'), {
 		}
 	}
 })
+
+// Dounut Heart Beat Rate Chart
+var douHeartChartCircle = [0, 0]
 douHeartChart = new Chart($('#topPressure').get(0).getContext('2d'), {
 	type: 'doughnut',
 	data: {
@@ -109,7 +112,7 @@ douHeartChart = new Chart($('#topPressure').get(0).getContext('2d'), {
 				'#feb23a',
 				'rgb(255, 245, 229)'
 			],
-			data: [50, 50]
+			data: douHeartChartCircle
 		}]
 	},
 	options: {
@@ -232,8 +235,10 @@ function update() { // fetch data from database and update the chart
     startIndex = time?time.length:0;
     countIndex = startIndex;
 
-    douHeartChart.data.datasets.data = [extractedheartdata[extractedheartdata.length - 1], 100 - extractedheartdata[extractedheartdata.length - 1]];
-    console.log(douHeartChart.data.datasets.data);
+
+    // Updating the Heart Beat Rate dounut chart
+    douHeartChartCircle = [extractedheartdata[extractedheartdata.length - 1], 100 - extractedheartdata[extractedheartdata.length - 1]];
+    douHeartChart.data.datasets[0].data = douHeartChartCircle; // the array in javascript need a index (the database one)
     douHeartChart.options.elements.center.text = extractedheartdata[extractedheartdata.length - 1];
     douHeartChart.update();
   }
@@ -337,7 +342,7 @@ function initChart(element, data) {   // init the graph
 						var index = tooltipItem.index
             var xLabel = tooltipItem.xLabel;
             var yLabel = tooltipItem.yLabel;
-						return datasets[tooltipItem.datasetIndex].label + '.' + tooltipItem.xLabel + ':' + tooltipItem.yLabel
+						return datasets[tooltipItem.datasetIndex].label + '.' + tooltipItem.xLabel + ' Heart Beat Rate:' + tooltipItem.yLabel
 					}
 				}
 				// displayColors: false
