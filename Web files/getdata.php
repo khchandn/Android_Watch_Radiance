@@ -10,10 +10,11 @@ else echo "Connected<br>";
 
 $timestamp = $_POST['timestamp'];
 $heartBeat = $_POST['heartBeat'];
+$UUID = $_POST['UUID'];
 $heartBeatint = (int)$heartBeat;
 $timestampstring = (String)$timestamp;
 
-$sql = "INSERT INTO HeartBeat (Timestamp, HeartBeat) VALUES ('$timestampstring', '$heartBeatint')";
+$sql = "INSERT INTO HeartBeat (UUID,Timestamp, HeartBeat) VALUES ('$UUID', '$timestampstring', '$heartBeatint')";
 
 if (mysqli_query($con, $sql)) {
   $response["success"] = 1;

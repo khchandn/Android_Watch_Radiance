@@ -17,6 +17,8 @@ import android.support.wearable.view.WatchViewStub;
 
 import static com.google.android.gms.wearable.DataMap.TAG;
 
+import static java.security.AccessController.getContext;
+
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -27,6 +29,10 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
+import android.provider.Settings.Secure;
+
+import java.util.UUID;
+
 public class MainActivity extends Activity {
     private SensorManager sensorManager;
     private Sensor heartRateSensor;
@@ -36,6 +42,8 @@ public class MainActivity extends Activity {
     private String postData = "";
     private String sendUrl = "http://43.252.167.19:9012/getdata.php";
     private RequestQueue requestQuene;
+
+    private String uniqueID = UUID.randomUUID().toString();
     int sucess;
 
 //    Switch dtmode = (Switch) findViewById(R.id.DTswitch);
@@ -133,7 +141,7 @@ public class MainActivity extends Activity {
             public byte[] getBody() {
                 Long tsLong = System.currentTimeMillis()/1000;
                 ts = tsLong.toString();
-                postData = "timestamp=" + ts +"&heartBeat=" + heartBeat;
+                postData = "timestamp=" + ts +"&heartBeat=" + heartBeat + "&UUID=" + uniqueID;
                 textView = (TextView) findViewById(R.id.a);
                 textView.setText(postData);
                 return postData.getBytes();
