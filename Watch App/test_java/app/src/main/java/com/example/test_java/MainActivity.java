@@ -31,19 +31,26 @@ import org.json.JSONObject;
 
 import android.provider.Settings.Secure;
 
+import java.util.Random;
 import java.util.UUID;
 
 public class MainActivity extends Activity {
     private SensorManager sensorManager;
     private Sensor heartRateSensor;
     private TextView textView;
-    private int heartBeat ;
+    private int heartBeat1 ;
+
+    private int heartBeat2 ;
     private String ts = "";
     private String postData = "";
     private String sendUrl = "http://43.252.167.19:9012/getdata.php";
     private RequestQueue requestQuene;
 
-    private String uniqueID = UUID.randomUUID().toString();
+    Random r = new Random();
+
+    private String uniqueID1 = UUID.randomUUID().toString();
+
+    private String uniqueID2 = UUID.randomUUID().toString();
     int sucess;
 
 //    Switch dtmode = (Switch) findViewById(R.id.DTswitch);
@@ -59,7 +66,7 @@ public class MainActivity extends Activity {
             textView = (TextView) findViewById(R.id.b);
             if (event.sensor.getType() == Sensor.TYPE_HEART_RATE) {
                 String msg = "" + (float)event.values[0];
-                heartBeat = (int)event.values[0];
+                heartBeat1 = (int)event.values[0];
                 textView.setText(msg);
                 sendData();
                 Log.d(TAG, msg);
@@ -69,6 +76,9 @@ public class MainActivity extends Activity {
                 Log.d(TAG, "Unknown sensor type");
                 String msg = "unknown";
                 textView.setText(msg);
+            }
+            if (((Switch) findViewById(R.id.duouser)).isChecked()){
+                heartBeat2 = r.nextInt(45) + 55;
             }
         }
 
@@ -141,7 +151,11 @@ public class MainActivity extends Activity {
             public byte[] getBody() {
                 Long tsLong = System.currentTimeMillis()/1000;
                 ts = tsLong.toString();
-                postData = "timestamp=" + ts +"&heartBeat=" + heartBeat + "&UUID=" + uniqueID;
+                if (((Switch) findViewById(R.id.duouser)).isChecked()) {
+                    postData = "state=duo"+"&timestamp1=" + ts + "&heartBeat1=" + heartBeat1 + "&UUID1=" + uniqueID1
+                            + "&timestamp2=" + ts + "&heartBeat2=" + heartBeat2 + "&UUID2=" + uniqueID2;
+                }
+                else postData = "state=sin"+"&timestamp1=" + ts + "&heartBeat1=" + heartBeat1 + "&UUID1=" + uniqueID1;
                 textView = (TextView) findViewById(R.id.a);
                 textView.setText(postData);
                 return postData.getBytes();
