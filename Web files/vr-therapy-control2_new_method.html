@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+	<meta name="description" content=""/>
+	<meta name="author" content=""/>
+	<title>Radiance</title>
+	<!--favicon-->
+	<link rel="icon" href="./images/logo.png" type="image/x-icon">
+	<!-- simplebar CSS-->
+	<link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
+	<!-- Bootstrap core CSS-->
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+	<!--Switchery-->
+	<link href="assets/plugins/switchery/css/switchery.min.css" rel="stylesheet"/>
+	<link href="assets/plugins/switchery/css/switGhechery.min.css" rel="stylesheet"/>
+
+	<link href="assets/plugins/bootstrap-switch/bootstrap-switch.min.css" rel="stylesheet">
+	<!-- animate CSS-->
+	<!-- animate CSS-->
+	<link href="assets/css/animate.css" rel="stylesheet" type="text/css"/>
+	<!-- Icons CSS-->
+	<link href="assets/css/icons.css" rel="stylesheet" type="text/css"/>
+	<!-- Sidebar CSS-->
+	<link href="assets/css/sidebar-menu.css" rel="stylesheet"/>
+	<!-- Custom Style-->
+	<link href="assets/css/app-style.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="./css/video-js.min.css">
+	<link rel="stylesheet" href="./css/control.css">
+
+</head>
+
+<body>
+
+<div id="wrapper">
+	<div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+		<div class="brand-logo">
+			<a href="index.html">
+				<img src="./images/logo.png" class="logo-icon" alt="logo icon">
+				<h5 class="logo-text">Radiance</h5>
+			</a>
+		</div>
+		<ul class="sidebar-menu do-nicescrol">
+			<li><a href="./VRdashboard.html" class="waves-effect"><img src="./images/dashboard.png" alt=""><span>Dashboard</span></a></li>
+			<li><a href="./vr-therapy-patient.html" class="waves-effect"><img src="./images/paint.png" alt=""><span>Patient Record</span></a></li>
+			<li><a href="./vr-therapy-scene.html" class="waves-effect"><img src="./images/sence.png" alt=""><span>VR Therapy Scene</span></a></li>
+			<li><a href="./vr-therapy-control1.html" class="waves-effect"><img src="./images/media.png" alt=""><span>VR Therapy Control</span></a></li>
+			<li><a href="./vr-therapy-questionnaires.html" class="waves-effect"><img src="./images/questionnaire.png" alt=""><span>Questionnaires</span></a></li>
+			<li><a href="./report.html" class="waves-effect"><img src="./images/report.png" alt=""><span>Report Review</span></a></li>
+			<li><a href="./setting.html" class="waves-effect"><img src="./images/setting.png" alt=""><span>Setting</span></a></li>
+		</ul>
+
+	</div>
+	<header class="topbar-nav">
+		<nav class="navbar navbar-expand fixed-top bg-white">
+			<ul class="navbar-nav mr-auto align-items-center">
+				<li class="nav-item">
+					<a class="nav-link toggle-menu" href="javascript:void();">
+						<img class="menu-icon" src="./images/expanded.png" alt="">
+					</a>
+				</li>
+				<li class="nav-item title">
+					VR Therapy Control
+				</li>
+			</ul>
+			<ul class="navbar-nav align-items-center right-nav-link">
+				<li class="nav-item">
+					<a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
+						<i class="fa fa-bell-o"></i><span class="badge badge-info badge-up">14</span></a>
+					<div class="dropdown-menu dropdown-menu-right">
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item d-flex justify-content-between align-items-center">
+								INFORMATION
+							</li>
+							<li class="notice list-group-item">
+								<a href="javaScript:void();">
+									<div class="media">
+										<img src="./images/bell.png" alt="">
+										<div class="media-body">
+											<h6 class="mt-0 msg-title">New Registered Users</h6>
+											<p class="msg-info"><img src="./images/clock.png" alt="">22 mins ago</p>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li class="notice list-group-item">
+								<a href="javaScript:void();">
+									<div class="media">
+										<img src="./images/bell.png" alt="">
+										<div class="media-body">
+											<h6 class="mt-0 msg-title">New Received Orders</h6>
+											<p class="msg-info"><img src="./images/clock.png" alt="">22 mins ago</p>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li class="notice list-group-item">
+								<a href="javaScript:void();">
+									<div class="media">
+										<img src="./images/bell.png" alt="">
+										<div class="media-body">
+											<h6 class="mt-0 msg-title">Title Title Title</h6>
+											<p class="msg-info"><img src="./images/clock.png" alt="">22 mins ago</p>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="dropdown" href="javascript:;">
+						<span class="user-profile"><img src="assets/images/avatars/avatar-13.png" class="img-circle" alt="user avatar"></span>
+					</a>
+					<a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
+						<span><img src="./images/nav.png" alt="dropdown"></span>
+					</a>
+					<ul class="user-dropdown dropdown-menu dropdown-menu-right">
+						<li class="user-info dropdown-item">
+							<img class="align-self-start mr-3" src="assets/images/avatars/avatar-13.png" alt="user avatar">
+							Macle li
+						</li>
+						<li class="user-dropdown-item dropdown-item">
+							User Information
+							<img src="./images/right-icon.png" alt="">
+						</li>
+						<li class="user-dropdown-item dropdown-item">
+							Log Out
+							<img src="./images/right-icon.png" alt="">
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<!--End topbar header-->
+	<div class="clearfix"></div>
+	<div class="content-wrapper">
+		<div class="row mt-2">
+				<div class="col-lg-6">
+					<div class="row">
+						<div class="left-top-content col-lg-12 col-xl-6">
+							<div class="card" style="margin-bottom: 0;">
+								<div class="card-header text-white">
+									<img src="./images/depression.png" alt="">
+									<div class="info">
+										<div class="title">Depression Scane</div>
+										<div class="desc">Peter Chan</div>
+									</div>
+								</div>
+								<div class="video-wrapper" style="width: 100%; height: 200px">
+                   <img  id="DisplayImg" src="./images/Room.png" style="width: 100%; height: 100%;"  />
+									<!--<video id="my-video" style="width: 100%; height: 100%;" class="video-js vjs-big-play-centered" controls preload="auto"
+									       data-setup="{}">
+										<source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+										<source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">
+										<source src="http://vjs.zencdn.net/v/oceans.ogv" type="video/ogg">
+									</video>
+                -->
+								</div>
+							</div>
+						</div>
+						<div class="left-top-content col-lg-12 col-xl-6">
+							<div class="card" style="margin-bottom: 0;">
+								<div class="card-header text-white">
+									<img src="./images/depression.png" alt="">
+									<div class="info">
+										<div class="title">Autism Scane</div>
+										<div class="desc">Mary Hung</div>
+									</div>
+								</div>
+								<div class="video-wrapper" style="width: 100%; height: 200px">
+                  <img  id="DisplayImg" src="./images/Classroom2.png" style="width: 100%; height: 100%;"  />
+                  <!--<video style="width: 100%; height: 100%;" id="my-video2" class="video-js vjs-big-play-centered" controls preload="auto"
+									       data-setup="{}">
+										<source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+										<source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">
+										<source src="http://vjs.zencdn.net/v/oceans.ogv" type="video/ogg">
+									</video>
+									-->
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="left-bottom-content col-lg-12 col-xl-6">
+							<div class="card">
+								<div class="card-header toggle hover">
+									<div class="left">
+                    <span class="fa fa-caret-up"></span>
+										<img src="./images/square.png" alt="">
+										Therapy Scene
+									</div>
+									<div class="time">Duration: 00:00</div>
+								</div>
+								<div class="card-body select-parent">
+									<select type="text" class="form-control" id="sub">
+										<option value="">Select Sence</option>
+										<option value="Train" selected>Room</option>
+										<option value="Train">Train</option>
+										<option value="Train">Classroom</option>
+									</select>
+								</div>
+								<div class="card-header text-white bg-header">
+									<div class="left-info" data-target="#collapse-1" aria-expanded="false" aria-controls="collapse-1">
+										<img src="./images/card-setting.png" alt="">
+										Therapy Control
+									</div>
+									<div class="info">
+										<img src="./images/right-btn.png" alt="">
+										<img src="./images/pause.png" alt="">
+										<img src="./images/share-btn.png" alt="">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="card-tab " id="collapse-1">
+											<ul class="nav nav-pills nav-pills-info nav-justified" role="tablist">
+												<li class="nav-item">
+													<a class="nav-link active" data-toggle="pill" href="#changeEvent">Change Event</a>
+												</li>
+												<li class="nav-item">
+													<a class="nav-link" data-toggle="pill" href="#log">Log</a>
+												</li>
+												<li class="nav-item">
+													<a class="nav-link" data-toggle="pill" href="#setting">Setting</a>
+												</li>
+											</ul>
+											<!-- Tab panes -->
+											<div class="tab-content">
+												<div id="changeEvent" class="container tab-pane active">
+													<input type="text" placeholder="Search" class="form-control form-control-rounded">
+													<div class="level-list row" style="height: 256px; overflow: auto">
+													<div class="col-lg-6">
+														<div class="level-item" id="cry">Cry</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item" id="calm">Calm</div> 
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item" id="relax">Relax</div>
+													</div>
+											<!--		<div class="col-lg-6">
+														<div class="level-item" id="Replay">Replay</div>
+													</div> 
+                          -->
+													<div class="col-lg-6">
+														<div class="level-item">Evenet 1</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item">Evenet 2</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item">Evenet 3</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item">Evenet 4</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item">Evenet 5</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item">Evenet 6</div>
+													</div>
+													</div>
+												</div>
+												<div id="log" class="container tab-pane fade">
+													<div class="input-group">
+														<input type="text" class="form-control" placeholder="Add Log">
+														<div class="input-group-append">
+															<button class="btn btn-outline-primary" type="button">Add</button>
+														</div>
+													</div>
+													<div class="table-responsive" style="height: 248px; margin-top: 8px;">
+														<table class="table table-striped table-flush">
+															<thead>
+															<tr>
+																<th scope="col">Time</th>
+																<th scope="col">Event&nbsp;&nbsp;&nbsp;&nbsp;2019/09/06</th>
+															</tr>
+															</thead>
+															<tbody>
+															<tr>
+																<td>18:00:00</td>
+																<td>event event event event event event</td>
+															</tr>
+															<tr>
+																<td>18:00:00</td>
+																<td>event event event event event event</td>
+															</tr>
+															<tr>
+																<td>18:00:00</td>
+																<td>event event event event event event</td>
+															</tr>
+															<tr>
+																<td>18:00:00</td>
+																<td>event event event event event event</td>
+															</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+												<div id="setting" class="container tab-pane fade">
+													<div class="setting" style="height: 294px;">
+														<div class="form-group row">
+															<label for="level" class="col-sm-4 col-form-label">Level:</label>
+															<div class="col-sm-8">
+																<select id="level" class="form-control">
+																	<option value="level1">level1</option>
+																	<option value="level1">level1</option>
+																	<option value="level1">level1</option>
+																	<option value="level1">level1</option>
+																</select>
+															</div>
+														</div>
+														<div class="form-group row">
+															<label class="col-sm-4 col-form-label" style="padding-right: 0;">Gender:</label>
+															<div class="col-sm-8" style="margin-left: -10px; text-align: left; padding: 0">
+																<div class="icheck-material-primary icheck-inline">
+																	<input type="radio" id="leftMale" name="leftSex" checked/>
+																	<label for="leftMale">male</label>
+																</div>
+																<div class="icheck-material-primary icheck-inline">
+																	<input type="radio" id="leftFemale" name="leftSex"/>
+																	<label for="leftFemale">female</label>
+																</div>
+															</div>
+														</div>
+														<div class="form-group row">
+															<label class="col-sm-3 col-form-label">Sound:</label>
+															<div class="col-sm-9" style="text-align: left">
+																<input type="checkbox" checked class="js-switch" data-color="#008cff" data-size="small"/>
+															</div>
+														</div>
+														<div class="form-group row">
+															<label class="col-sm-3 col-form-label">xxx:</label>
+															<div class="col-sm-9" style="text-align: left">
+																<input type="checkbox" class="js-switch" data-color="#008cff" data-size="small"/>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="log">
+												Log: event event event event event
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="left-bottom-content col-lg-12 col-xl-6">
+							<div class="card">
+								<div class="card-header hover toggle">
+									<div class="left">
+                    <span class="fa fa-caret-up"></span>                          
+										<img src="./images/square.png" alt="">
+										Therapy Scene
+									</div>
+									<div class="time">Duration: 00:00</div>
+								</div>
+								<div class="card-body select-parent">
+									<select type="text" class="form-control">
+										<option value="" >Select Sence</option>
+										<option value="Train">Room</option>
+										<option value="Train">Train</option>
+										<option value="Train" selected>Classroom</option>
+									</select>
+								</div>
+								<div class="card-header text-white bg-header">
+										<div class="left-info"  data-target="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+										<img src="./images/card-setting.png" alt="">
+										Therapy Control
+									</div>
+									<div class="info">
+										<img src="./images/right-btn.png" alt="">
+										<img src="./images/pause.png" alt="">
+										<img src="./images/share-btn.png" alt="">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="card-tab" id="collapse-2">
+											<ul class="nav nav-pills nav-pills-info nav-justified" role="tablist">
+												<li class="nav-item">
+													<a class="nav-link active" data-toggle="pill" href="#rightChangeEvent">Change Event</a>
+												</li>
+												<li class="nav-item">
+													<a class="nav-link" data-toggle="pill" href="#rightLog">Log</a>
+												</li>
+												<li class="nav-item">
+													<a class="nav-link" data-toggle="pill" href="#rightSetting">Setting</a>
+												</li>
+											</ul>
+											<!-- Tab panes -->
+											<div class="tab-content">
+												<div id="rightChangeEvent" class="container tab-pane active">
+													<input type="text" placeholder="Search" class="form-control form-control-rounded">
+													<div class="level-list row" style="max-height: 256px; overflow: auto">
+													<div class="col-lg-6">
+														<div class="level-item" id="GoToClassroom">Go into Classroom</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item" id="LookAtThePlayer">LookAtThePlayer</div>
+													</div>
+                          
+													<div class="col-lg-6">
+														<div class="level-item" id="RetrunNormalPose" >RetrunNormalPose</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item">Evenet 1</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item">Evenet 2</div>
+													</div>
+													<div class="col-lg-6">
+														<div class="level-item">Evenet 3</div>
+													</div>
+													</div>
+												</div>
+												<div id="rightLog" class="container tab-pane fade">
+													<div class="input-group">
+														<input type="text" class="form-control" placeholder="Add Log">
+														<div class="input-group-append">
+															<button class="btn btn-outline-primary" type="button">Add</button>
+														</div>
+													</div>
+													<div class="table-responsive" style="height: 248px; margin-top: 8px;">
+														<table class="table table-striped table-flush">
+															<thead>
+															<tr>
+																<th scope="col">Time</th>
+																<th scope="col">Event&nbsp;&nbsp;&nbsp;&nbsp;2019/09/06</th>
+															</tr>
+															</thead>
+															<tbody>
+															<tr>
+																<td>18:00:00</td>
+																<td>event event event event event event</td>
+															</tr>
+															<tr>
+																<td>18:00:00</td>
+																<td>event event event event event event</td>
+															</tr>
+															<tr>
+																<td>18:00:00</td>
+																<td>event event event event event event</td>
+															</tr>
+															<tr>
+																<td>18:00:00</td>
+																<td>event event event event event event</td>
+															</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+												<div id="rightSetting" class="container tab-pane fade">
+													<div class="setting" style="height: 294px;">
+														<div class="form-group row">
+															<label for="rightLevel" class="col-sm-4 col-form-label">Level:</label>
+															<div class="col-sm-8">
+																<select id="rightLevel" class="form-control">
+																	<option value="level1">level1</option>
+																	<option value="level1">level1</option>
+																	<option value="level1">level1</option>
+																	<option value="level1">level1</option>
+																</select>
+															</div>
+														</div>
+														<div class="form-group row">
+															<label class="col-sm-4 col-form-label" style="padding-right: 0;">Gender:</label>
+															<div class="col-sm-8" style="margin-left: -10px; text-align: left; padding: 0">
+																<div class="icheck-material-primary icheck-inline">
+																	<input type="radio" id="male" name="rightSex" checked/>
+																	<label for="male">male</label>
+																</div>
+																<div class="icheck-material-primary icheck-inline">
+																	<input type="radio" id="female" name="rightSex"/>
+																	<label for="female">female</label>
+																</div>
+															</div>
+														</div>
+														<div class="form-group row">
+															<label class="col-sm-4 col-form-label">Sound:</label>
+															<div class="col-sm-7.1" style="text-align: left">
+																<input type="checkbox" checked class="js-switch" data-color="#008cff" data-size="small"/>
+															</div>
+														</div>
+														<div class="form-group row">
+															<label class="col-sm-3 col-form-label">xxx:</label>
+															<div class="col-sm-9" style="text-align: left">
+																<input type="checkbox" class="js-switch" data-color="#008cff" data-size="small"/>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="log">
+												Log: event event event event event
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="right-top-content">
+						<div class="card">
+							<div class="card-header text-white">
+								<div class="left">
+									<img src="./images/heart.png" alt="">
+									Health Status
+								</div>
+								<div class="info">
+									<!--Patient NameA-->
+								</div>
+							</div>
+							<div class="pie-chart">
+								<div class="row no-padding">
+									<div class="col-2">Peter Chan</div>
+									<div class="col-10">
+										<div class="row">
+											<div class="col-4"><canvas id="heartBeat" height="180"></canvas></div>
+											<div class="col-4"><canvas id="Breathing" height="180"></canvas></div>
+											<div class="col-4"><canvas id="variability" height="180"></canvas></div>
+										</div>
+									</div>
+								</div>
+								<div class="row no-padding">
+									<div class="col-2">Mary Hung</div>
+									<div class="col-10">
+										<div class="row">
+											<div class="col-4"><canvas id="heartBeat1" height="180"></canvas></div>
+											<div class="col-4"><canvas id="Breathing1" height="180"></canvas></div>
+											<div class="col-4"><canvas id="variability1" height="180"></canvas></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div style="padding: 0 30px;">
+									<div class="chart-title">
+										Heart Rate Display
+										<div class="right">
+											<button id="history-btn">History</button>
+											<button id="temp-btn">Back to Update</button>
+											<button id="clear-btn">Clear</button>
+											<img class="left-top-btn" src="./images/left-btn.png" alt="">
+											<img class="right-top-btn" src="./images/right-btn.png" alt="">
+										</div>
+									</div>
+								<div class="radio-group mt-1 mb-1">
+									<div class="icheck-material-primary icheck-inline">
+										<input type="radio" id="heart" value="Heart Beat Rate" name="rate" checked/>
+										<label for="heart">Heart Beat Rate</label>
+									</div>
+									<div class="icheck-material-primary icheck-inline">
+										<input type="radio" id="breath" value="Breathing Rate" name="rate"/>
+										<label for="breath">Breathing Rate</label>
+									</div>
+								</div>
+								<canvas id="heartRate" height="80"></canvas>
+									<div class="chart-title">
+										Blood Pressure Index
+										<div class="right">
+											<img class="left-bottom-btn" src="./images/left-btn.png" alt="">
+											<img class="right-bottom-btn" src="./images/right-btn.png" alt="">
+										</div>
+									</div>
+									<canvas id="bloodPressure" height="80"></canvas>
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div><!--End content-wrapper-->
+</div><!--End wrapper-->
+
+<!-- Bootstrap core JavaScript-->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+
+<!-- simplebar js -->
+<!--<script src="assets/plugins/simplebar/js/simplebar.js"></script>-->
+<!-- waves effect js -->
+<script src="assets/js/waves.js"></script>
+<!-- sidebar-menu js -->
+<script src="assets/js/sidebar-menu.js"></script>
+<!-- Custom scripts -->
+<script src="assets/js/app-script.js"></script>
+<!-- Chart js -->
+<script src="assets/plugins/Chart.js/Chart.min.js"></script>
+<!--Peity Chart -->
+<script src="assets/plugins/peity/jquery.peity.min.js"></script>
+<script src="./js/controltemp_new_method.js"></script>
+<script src="./js/video.min.js"></script>
+<script src="assets/plugins/switchery/js/switchery.min.js"></script>
+<script>
+	$('.level-item').on('click', function () {
+		$(this).addClass('active').parent().siblings().find('.level-item').removeClass('active')
+		$(this).parents('.card-tab').find('.log').text('Log: ' + $(this).text())
+	})
+	var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'))
+	$('.js-switch').each(function () {
+		new Switchery($(this)[0], $(this).data())
+	})
+	videojs.addLanguage('zh-CN', {
+		'Play': '����',
+		'Pause': '?��',
+		'Current Time': '?�e??',
+		'Duration': '??',
+		'Remaining Time': '�ѧE??',
+		'Stream Type': '�C�^�y?��',
+		'LIVE': '����',
+		'Loaded': '�[?��?',
+		'Progress': '?��',
+		'Fullscreen': '����',
+		'Non-Fullscreen': '�h�X����',
+		'Mute': '?��',
+		'Unmute': '����?��',
+		'Playback Rate': '����t��',
+		'Subtitles': '�r��',
+		'subtitles off': '??�r��',
+		'Captions': '?�O�r��',
+		'captions off': '???�O�r��',
+		'Chapters': '?�جq��',
+		'Close Modal Dialog': '???��',
+		'Descriptions': '�y�z',
+		'descriptions off': '??�y�z',
+		'Audio Track': '��?',
+		'You aborted the media playback': '??����Q?��',
+		'A network error caused the media download to fail part-way.': '�I????�P??�U?���~��?�C',
+		'The media could not be loaded, either because the server or network failed or because the format is not supported.': '??�]�榡������Ϊ̪A?�����I?��???�k�[?�C',
+		'The media playback was aborted due to a corruption problem or because the media used features your browser did not support.': '�Ѥ_??���?���άO???�ϥΤF�A��??����������\��A����?��C',
+		'No compatible source was found for this media.': '?�k��즹??�ݮe�����C',
+		'The media is encrypted and we do not have the keys to decrypt it.': '??�w�[�K�A?�k�ѱK�C',
+		'Play Video': '����??',
+		'Close': '??',
+		'Modal Window': '?��',
+		'This is a modal window': '?�O�@??��',
+		'This modal can be closed by pressing the Escape key or activating the close button.': '�i�H��ESC��?��?��??��????��?���C',
+		', opens captions settings dialog': ', ?????�m?��',
+		', opens subtitles settings dialog': ', ??�r��?�m?��',
+		', opens descriptions settings dialog': ', ??�y�z?�m?��',
+		', selected': ', ??',
+		'captions settings': '�r��?�w',
+		'Audio Player': '��?����',
+		'Video Player': '??����',
+		'Replay': '����',
+		'Progress Bar': '?�פp?',
+		'Volume Level': '���q',
+		'subtitles settings': '�r��?�w',
+		'descriptions settings': '�y�z?�w',
+		'Text': '��r',
+		'White': '��',
+		'Black': '��',
+		'Red': '?',
+		'Green': '?',
+		'Blue': '?',
+		'Yellow': '?',
+		'Magenta': '��?',
+		'Cyan': '�C',
+		'Background': '�I��',
+		'Window': '?��',
+		'Transparent': '�z��',
+		'Semi-Transparent': '�b�z��',
+		'Opaque': '���z��',
+		'Font Size': '�r�^�ؤo',
+		'Text Edge Style': '�r�^???��',
+		'None': '?',
+		'Raised': '�B�J',
+		'Depressed': '?�C',
+		'Uniform': '��?',
+		'Dropshadow': '�U?�v',
+		'Font Family': '�r�^?',
+		'Proportional Sans-Serif': '���??�^',
+		'Monospace Sans-Serif': '??�j??�^',
+		'Proportional Serif': '���?�^',
+		'Monospace Serif': '??�j?�^',
+		'Casual': '����',
+		'Script': '��?�^',
+		'Small Caps': '�p���j?�r�^',
+		'Reset': '��?',
+		'restore all settings to the default values': '���`����?�w��??��',
+		'Done': '����',
+		'Caption Settings Dialog': '�r��?�w?��',
+		'Beginning of dialog window. Escape will cancel and close the window.': '?�l???���C��??������???��',
+		'End of dialog window.': '?��???��'
+	})
+	videojs('my-video')
+	videojs('my-video2')
+</script>
+<!-- Index js -->
+
+</body>
+</html>
