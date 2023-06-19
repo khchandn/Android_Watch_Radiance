@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 var sqlheartdata;
 var topHeartChart;
@@ -495,3 +496,5 @@ toggleChart({
 
   var intervalId = setInterval(function(){update();console.log('run update');}, 500);
 >>>>>>> parent of 580bdf3 (Create New Method for the duo person control panel)
+=======
+>>>>>>> parent of e1c7252 (Implement the 2 user control panel)
