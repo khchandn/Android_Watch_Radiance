@@ -166,10 +166,12 @@ function extractData(orgdata) {
           .map(function(item) {return new Date(item.x).toLocaleTimeString();});
         time1 = orgdata.filter(function(item) {return item.userID == firstUserID})
           .map(function(item) {return new Date(item.x).toLocaleTimeString();});
-        topHeartData.datasets[0].data = orgdata.filter(o => o.userID == firstUserID).slice(orgdata.length < 30 ? -orgdata.length : -30).map(o => ({ x: new Date(o.x).toLocaleTimeString(), y: o.y }));
-        topHeartData.datasets[1].data = orgdata.filter(o => o.userID != firstUserID).slice(orgdata.length < 30 ? -orgdata.length : -30).map(o => ({ x: new Date(o.x).toLocaleTimeString(), y: o.y }));
-        console.log(orgdata.filter(o => o.userID == firstUserID).slice(orgdata.length < 30 ? -orgdata.length : -30).map(o => ({ x: new Date(o.x).toLocaleTimeString(), y: o.y })))
-      }
+          topHeartData.datasets[0].data = orgdata.filter(o => o.userID == firstUserID).map(o => ({ x: new Date(o.x).toLocaleTimeString(), y: o.y }));
+          topHeartData.datasets[0].data = topHeartData.datasets[0].data.slice(topHeartData.datasets[0].data.length < 30 ? -topHeartData.datasets[0].data.length : -30)
+          topHeartData.datasets[1].data = orgdata.filter(o => o.userID != firstUserID).map(o => ({ x: new Date(o.x).toLocaleTimeString(), y: o.y }));
+          topHeartData.datasets[1].data = topHeartData.datasets[1].data.slice(topHeartData.datasets[1].data.length < 30 ? -topHeartData.datasets[1].data.length : -30)
+          
+        }
 
       if (new Date(sqlheartdata[sqlheartdata.length - 1].x).toLocaleTimeString() > time1[time1.length - 1]) {
         firstUserID = orgdata[0].userID;
@@ -180,12 +182,14 @@ function extractData(orgdata) {
           .map(function(item) {return new Date(item.x).toLocaleTimeString();});
         time1 = orgdata.filter(function(item) {return item.userID == firstUserID})
           .map(function(item) {return new Date(item.x).toLocaleTimeString();});
-          topHeartData.datasets[0].data = orgdata.filter(o => o.userID == firstUserID).slice(orgdata.length < 30 ? -orgdata.length : -30).map(o => ({ x: new Date(o.x).toLocaleTimeString(), y: o.y }));
-          topHeartData.datasets[1].data = orgdata.filter(o => o.userID != firstUserID).slice(orgdata.length < 30 ? -orgdata.length : -30).map(o => ({ x: new Date(o.x).toLocaleTimeString(), y: o.y }));
-      upGraph();
+          topHeartData.datasets[0].data = orgdata.filter(o => o.userID == firstUserID).map(o => ({ x: new Date(o.x).toLocaleTimeString(), y: o.y }));
+          topHeartData.datasets[0].data = topHeartData.datasets[0].data.slice(topHeartData.datasets[0].data.length < 30 ? -topHeartData.datasets[0].data.length : -30)
+          topHeartData.datasets[1].data = orgdata.filter(o => o.userID != firstUserID).map(o => ({ x: new Date(o.x).toLocaleTimeString(), y: o.y }));
+          topHeartData.datasets[1].data = topHeartData.datasets[1].data.slice(topHeartData.datasets[1].data.length < 30 ? -topHeartData.datasets[1].data.length : -30)
     }
     startIndex = time1?time1.length:0;
     countIndex = startIndex;
+    upGraph(topHeartChart);
   }
 }
 
