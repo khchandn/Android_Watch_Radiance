@@ -68,6 +68,7 @@ const config = { // config of the graph
     type: 'line',
     data: topHeartData,
     options: {
+      spanGaps: true,
       responsive: true,
       plugins: {
         legend: {
@@ -465,6 +466,7 @@ function toggleChart(options,chart){
         isPaused = true;
         clearInterval(intervalId); 
       }
+      
       display_time1 = time1;
       display_extractedheartdata1 = extractedheartdata1;
       display_time2 = time2;
