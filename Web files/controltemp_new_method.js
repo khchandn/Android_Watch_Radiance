@@ -64,7 +64,7 @@ Chart.pluginService.register({
 
 
 const config = { // config of the graph
-    type: 'scatter',
+    type: 'line',
     data: topHeartData,
     options: {
       responsive: true,
@@ -84,7 +84,7 @@ const config = { // config of the graph
 
 function initChart(element, data) {   // init the graph
 	return new Chart(element, {
-		type: 'scatter',
+		type: 'line',
 		data: data,
 		options: {
 			layout: {
@@ -181,7 +181,7 @@ function extractData(orgdata) {
         time1 = orgdata.filter(function(item) {return item.userID == firstUserID})
           .map(function(item) {return new Date(item.x).toLocaleTimeString();});
           topHeartData.datasets[0].data = orgdata.filter(o => o.userID == firstUserID).slice(orgdata.length < 30 ? -orgdata.length : -30).map(o => ({ x: new Date(o.x).toLocaleTimeString(), y: o.y }));
-        topHeartData.datasets[1].data = orgdata.filter(o => o.userID != firstUserID).slice(orgdata.length < 30 ? -orgdata.length : -30).map(o => ({ x: new Date(o.x).toLocaleTimeString(), y: o.y }));
+          topHeartData.datasets[1].data = orgdata.filter(o => o.userID != firstUserID).slice(orgdata.length < 30 ? -orgdata.length : -30).map(o => ({ x: new Date(o.x).toLocaleTimeString(), y: o.y }));
       upGraph();
     }
     startIndex = time1?time1.length:0;
@@ -233,16 +233,16 @@ function toggleChart(options,chart){
     var isPaused = false; // variable to track if the graph is paused
     
     clearBtn.on('click', function(){
-      $.ajax({
-        url: 'http://43.252.167.19:9012/cleardata.php',
-        type: 'POST',
-        success: function(response) {
-          console.log(response);
-        },
-        error: function(xhr, status, error) {
-          console.error(error);
-        }
-      });
+      // $.ajax({
+      //   url: 'http://43.252.167.19:9012/cleardata.php',
+      //   type: 'POST',
+      //   success: function(response) {
+      //     console.log(response);
+      //   },
+      //   error: function(xhr, status, error) {
+      //     console.error(error);
+      //   }
+      // });
       // console.log("clear button clicked");
     });
   
