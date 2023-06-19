@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 var sqlheartdata;
 var topHeartChart;
 var douHeartChart;
@@ -68,7 +65,6 @@ const config = { // config of the graph
     type: 'line',
     data: topHeartData,
     options: {
-      spanGaps: true,
       responsive: true,
       plugins: {
         legend: {
@@ -466,7 +462,6 @@ function toggleChart(options,chart){
         isPaused = true;
         clearInterval(intervalId); 
       }
-      
       display_time1 = time1;
       display_extractedheartdata1 = extractedheartdata1;
       display_time2 = time2;
@@ -497,6 +492,3 @@ toggleChart({
 
 
   var intervalId = setInterval(function(){update();console.log('run update');}, 500);
->>>>>>> parent of 580bdf3 (Create New Method for the duo person control panel)
-=======
->>>>>>> parent of e1c7252 (Implement the 2 user control panel)
