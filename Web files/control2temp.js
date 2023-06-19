@@ -350,7 +350,7 @@ function initChart(element, data) {   // init the graph
 		}
 	})
 }
-function upGraph(chart){    // update the graph
+function upGraph(chart){    // generate the graph
 
   if(sqlheartdata){
     if (sqlheartdata && extractedheartdata) {
