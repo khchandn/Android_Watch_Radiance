@@ -148,7 +148,43 @@ var topHeartData = {
 	}]
 }
 
+var bloodLabels = ['02', '04', '06', '08', '10', '12', '14', '16', '18', '20']
+bloodLabels.position = 0
+var bloodData = {
+	'Blood Pressure 1': [20, 15, 40, 55, 30, 15, 40, 20, 20, 18],
+	'Blood Pressure 2': [40, 30, 60, 35, 60, 25, 50, 40, 30, 22],
+	'Blood Pressure 3': [33, 22, 36, 26, 73, 54, 67, 53, 30, 22],
+}
+var bloodOptions = {
+	labels: bloodLabels.slice(bloodLabels.position, 6),
+	display: false,
+	datasets: [{
+		label: 'Blood Pressure 1',
+		data: bloodData['Blood Pressure 1'].slice(bloodLabels.position, 6),
+		backgroundColor: 'rgba(16, 151, 233, .1)',
+		pointRadius: 1,
+		borderWidth: 3,
+		borderColor: 'rgba(16, 151, 233, .1)'
+	}, {
+		label: 'Blood Pressure 2',
+		data: bloodData['Blood Pressure 2'].slice(bloodLabels.position, 6),
+		borderColor: '#1097e9',
+		backgroundColor: 'transparent',
+		pointRadius: 1,
+		borderWidth: 3
+	}, {
+		label: 'Blood Pressure 3',
+		data: bloodData['Blood Pressure 3'].slice(bloodLabels.position, 6),
+		borderColor: 'rgb(239, 54, 61)',
+		backgroundColor: 'transparent',
+		pointRadius: 1,
+		borderWidth: 3
+	}]
+}
+
+
 topHeartChart = initChart($('#heartRate').get(0).getContext('2d'), topHeartData);
+var bloodChart = initChart($('#bloodPressure').get(0).getContext('2d'), bloodOptions)
 
 
 function extractData(orgdata) {
@@ -543,11 +579,51 @@ var douHeartBeatChartA = renderDoughnut($('#heartBeatA').get(0).getContext('2d')
 var douHeartBeatChartB = renderDoughnut($('#heartBeatB').get(0).getContext('2d'), {
 	labels: ['Heart Beat Rate'],
 	backgroundColor: [
-		'rgb(255, 80, 80)',
-		'rgba(255, 80, 80, .1)',
+		'rgb(63, 77, 197)',
+		'rgba(63, 77, 197, .1)',
 	],
 	data: [50, 50]
 })
+
+var douBreathingChartA = renderDoughnut($('#BreathingA').get(0).getContext('2d'), {
+	labels: ['Breathing Rate'],
+	backgroundColor: [
+		'rgb(245, 188, 183)',
+		'rgba(245, 188, 183, .1)',
+	],
+	data: [50, 50]
+})
+
+var douBreathingChartB = renderDoughnut($('#BreathingB').get(0).getContext('2d'), {
+	labels: ['Breathing Rate'],
+	backgroundColor: [
+		'rgb(148, 215, 236)',
+		'rgba(148, 215, 236, .1)',
+	],
+	data: [50, 50]
+})
+
+
+var douBreathingChartA = renderDoughnut($('#VariabilityA').get(0).getContext('2d'), {
+	labels: ['Heart Beat Interval'],
+	backgroundColor: [
+		'rgb(241, 86, 94)',
+		'rgba(241, 86, 94, .1)',
+	],
+	data: [50, 50]
+})
+
+var douBreathingChartB = renderDoughnut($('#VariabilityB').get(0).getContext('2d'), {
+	labels: ['Heart Beat Interval'],
+	backgroundColor: [
+		'rgb(96, 134, 241)',
+		'rgba(96, 134, 241, .1)',
+	],
+	data: [50, 50]
+})
+
+
+
 
 
 
