@@ -193,6 +193,7 @@ function extractData(orgdata) {
             .map(function(item) {return item.y});
           // upGraph();
         }
+        upDonut(douHeartBeatChartA);
       }
 
       if (new Date(sqlheartdata[sqlheartdata.length - 1].x).toLocaleTimeString() > time1[time1.length - 1]) {
@@ -233,7 +234,7 @@ function extractData(orgdata) {
             .map(function(item) {return item.y});
           // upGraph();
       }
-
+      upDonut(douHeartBeatChartA);
     }
     startIndex = time1?time1.length:0;
     countIndex = startIndex;
@@ -246,7 +247,7 @@ function renderDoughnut(ele, options) {
 	var total = options.data.reduce(function (prev, curr) {
 		return prev + curr
 	}, 0)
-	new Chart(ele, {
+	var chart = new Chart(ele, {
 		type: 'doughnut',
 		data: {
 			labels: labels,
@@ -259,7 +260,7 @@ function renderDoughnut(ele, options) {
 			responsive: true,
 			elements: {
 				center: {
-					text: parseInt(options.data[0] * 100 / total) + '%',
+					text: ' ',
 					color: options.backgroundColor[0], //Default black
 					fontStyle: 'Helvetica', //Default Arial
 					sidePadding: 30 //Default 20 (as a percentage)
@@ -279,6 +280,7 @@ function renderDoughnut(ele, options) {
 		}
 	})
   console.log('rened donut');
+  return chart;
 }
 
 function update() { // fetch data from database and update the chart
@@ -299,7 +301,7 @@ function update() { // fetch data from database and update the chart
       // console.log(sqlheartdata.slice(-6).map(function(item) {return item.y;}));
       // console.log(sqlheartdata.slice(-6).map(function(item) {return item.x;}));
       extractData(sqlheartdata);
-      console.log(sqlheartdata);
+      // console.log(sqlheartdata);
 //     if(sqlheartdata){
 //       if(!time1&&!extractedheartdata1){
 //         console.log('empty');
@@ -406,6 +408,18 @@ function upGraph(chart){    // update the graph
     console.log('updated graph');
 }
 
+function upDonut(){
+  if(douHeartBeatChartA&&douHeartBeatChartB&&display_extractedheartdata1){
+    douHeartBeatChartA.data.datasets[0].data = [display_extractedheartdata1.slice(-1), 120 - display_extractedheartdata1.slice(-1)]
+    douHeartBeatChartA.options.elements.center.text = display_extractedheartdata1.slice(-1);
+    douHeartBeatChartB.data.datasets[0].data = [display_extractedheartdata2.slice(-1), 120 - display_extractedheartdata2.slice(-1)]
+    douHeartBeatChartB.options.elements.center.text = display_extractedheartdata2.slice(-1);
+  }
+  douHeartBeatChartA.update();
+  douHeartBeatChartB.update();
+}
+
+
 function toggleChart(options,chart){
     var leftBtn = options.leftBtn
       var rightBtn = options.rightBtn
@@ -422,17 +436,17 @@ function toggleChart(options,chart){
     var isPaused = false; // variable to track if the graph is paused
     
     clearBtn.on('click', function(){
-      $.ajax({
-        url: 'http://43.252.167.19:9012/cleardata.php',
-        type: 'POST',
-        success: function(response) {
-          console.log(response);
-        },
-        error: function(xhr, status, error) {
-          console.error(error);
-        }
-      });
-      // console.log("clear button clicked");
+      // $.ajax({
+      //   url: 'http://43.252.167.19:9012/cleardata.php',
+      //   type: 'POST',
+      //   success: function(response) {
+      //     console.log(response);
+      //   },
+      //   error: function(xhr, status, error) {
+      //     console.error(error);
+      //   }
+      // });
+      // // console.log("clear button clicked");
     });
   
     tempBtn.on('click', function () {
@@ -516,7 +530,8 @@ function toggleChart(options,chart){
   
 }
 
-renderDoughnut($('#heartBeat').get(0).getContext('2d'), {
+
+var douHeartBeatChartA = renderDoughnut($('#heartBeatA').get(0).getContext('2d'), {
 	labels: ['Heart Beat Rate'],
 	backgroundColor: [
 		'rgb(255, 80, 80)',
@@ -525,41 +540,15 @@ renderDoughnut($('#heartBeat').get(0).getContext('2d'), {
 	data: [50, 50]
 })
 
-new Chart($('#Breathing').get(0).getContext('2d'), {
-	type: 'doughnut',
-	data: {
-		labels: ['Breathing Rate'],
-		datasets: [{
-			backgroundColor: [
-				'#8abe78',
-				'rgb(231, 251, 223)'
-			],
-			data: [30, 70]
-		}]
-	},
-	options: {
-		responsive: true,
-		elements: {
-			center: {
-				text: '30%',
-				color: '#8abe78', //Default black
-				fontStyle: 'Helvetica', //Default Arial
-				sidePadding: 30 //Default 20 (as a percentage)
-			}
-		},
-		legend: {
-			position: 'bottom',
-			display: true,
-			labels: {
-				boxWidth: 8,
-				fontSize: 12
-			}
-		},
-		tooltips: {
-			enabled: false
-		}
-	}
+var douHeartBeatChartB = renderDoughnut($('#heartBeatB').get(0).getContext('2d'), {
+	labels: ['Heart Beat Rate'],
+	backgroundColor: [
+		'rgb(255, 80, 80)',
+		'rgba(255, 80, 80, .1)',
+	],
+	data: [50, 50]
 })
+
 
 
 toggleChart({
@@ -578,4 +567,4 @@ toggleChart({
 // douHeartBeatChartA.update();
 // douHeartBeatChartB.update();
 
-  var intervalId = setInterval(function(){update();console.log('run update xx');}, 500);
+  var intervalId = setInterval(function(){update();console.log('run update');}, 500);
