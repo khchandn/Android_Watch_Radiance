@@ -240,6 +240,47 @@ function extractData(orgdata) {
   }
 }
 
+
+function renderDoughnut(ele, options) {
+	var labels = options.labels
+	var total = options.data.reduce(function (prev, curr) {
+		return prev + curr
+	}, 0)
+	new Chart(ele, {
+		type: 'doughnut',
+		data: {
+			labels: labels,
+			datasets: [{
+				backgroundColor: options.backgroundColor,
+				data: options.data
+			}]
+		},
+		options: {
+			responsive: true,
+			elements: {
+				center: {
+					text: parseInt(options.data[0] * 100 / total) + '%',
+					color: options.backgroundColor[0], //Default black
+					fontStyle: 'Helvetica', //Default Arial
+					sidePadding: 30 //Default 20 (as a percentage)
+				}
+			},
+			legend: {
+				position: 'bottom',
+				display: true,
+				labels: {
+					boxWidth: 8,
+					fontSize: 12
+				}
+			},
+			tooltips: {
+				enabled: false
+			}
+		}
+	})
+  console.log('rened donut');
+}
+
 function update() { // fetch data from database and update the chart
     fetch('readdataduouser.php')
       .then(response => response.json())
@@ -475,6 +516,51 @@ function toggleChart(options,chart){
   
 }
 
+renderDoughnut($('#heartBeat').get(0).getContext('2d'), {
+	labels: ['Heart Beat Rate'],
+	backgroundColor: [
+		'rgb(255, 80, 80)',
+		'rgba(255, 80, 80, .1)',
+	],
+	data: [50, 50]
+})
+
+new Chart($('#Breathing').get(0).getContext('2d'), {
+	type: 'doughnut',
+	data: {
+		labels: ['Breathing Rate'],
+		datasets: [{
+			backgroundColor: [
+				'#8abe78',
+				'rgb(231, 251, 223)'
+			],
+			data: [30, 70]
+		}]
+	},
+	options: {
+		responsive: true,
+		elements: {
+			center: {
+				text: '30%',
+				color: '#8abe78', //Default black
+				fontStyle: 'Helvetica', //Default Arial
+				sidePadding: 30 //Default 20 (as a percentage)
+			}
+		},
+		legend: {
+			position: 'bottom',
+			display: true,
+			labels: {
+				boxWidth: 8,
+				fontSize: 12
+			}
+		},
+		tooltips: {
+			enabled: false
+		}
+	}
+})
+
 
 toggleChart({
 	leftBtn: $('.left-top-btn'),
@@ -489,6 +575,7 @@ toggleChart({
 	// options: data
 }, topHeartChart)
 
+// douHeartBeatChartA.update();
+// douHeartBeatChartB.update();
 
-
-  var intervalId = setInterval(function(){update();console.log('run update');}, 500);
+  var intervalId = setInterval(function(){update();console.log('run update xx');}, 500);
