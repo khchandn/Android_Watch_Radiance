@@ -9,6 +9,7 @@ import android.hardware.SensorEventListener;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -39,11 +40,13 @@ public class MainActivity extends Activity {
     private Sensor heartRateSensor;
     private TextView textView;
     private int heartBeat1 ;
-
+    private int oldheartBeat1;
     private int heartBeat2 ;
+    private int oldheartBeat2;
     private String ts = "";
     private String postData = "";
-    private String sendUrl = "http://43.252.167.19:9012/getdata.php";
+    private String sendUrl = "http://43.252.167.19:9527/api/getdata";
+    //private String sendUrl = "http://192.168.56.70:8000/api/getdata";
     private RequestQueue requestQuene;
 
     Random r = new Random();
@@ -96,6 +99,9 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Keep the screen on
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
         textView = (TextView) findViewById(R.id.a);
         requestQuene = Volley.newRequestQueue(getApplicationContext());
         sensorManager = ((SensorManager) getSystemService(Context.SENSOR_SERVICE));
@@ -111,6 +117,10 @@ public class MainActivity extends Activity {
 
 
         sensorManager.registerListener(sensorEventListener, heartRateSensor, sensorManager.SENSOR_DELAY_FASTEST);
+
+        oldheartBeat1 = 0;
+        oldheartBeat2 = 0;
+
     }
     public void onResume(){
         super.onResume();
@@ -139,7 +149,7 @@ public class MainActivity extends Activity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(MainActivity.this, error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, error.getMessage().toString(), Toast.LENGTH_SHORT).show();
             }
         }){
             @Override
@@ -161,7 +171,24 @@ public class MainActivity extends Activity {
                 return postData.getBytes();
             }
         };
+
         request.setRetryPolicy(new DefaultRetryPolicy(1000,1,1.0f));
+        
+        //logic to determine to upload or not when the heartbeat remains the same
+/*
+        if (((Switch) findViewById(R.id.duouser)).isChecked()) {
+            if(heartBeat1!=oldheartBeat1||heartBeat2!=oldheartBeat2) {
+                requestQuene.add(request);
+                oldheartBeat1 = heartBeat1;
+                oldheartBeat2 = heartBeat2;
+            }
+        } else {
+            if(heartBeat1!=oldheartBeat1) {
+                requestQuene.add(request);
+                oldheartBeat1 = heartBeat1;
+            }
+        }
+*/
         requestQuene.add(request);
 
     }
